@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UsuarioMapper">
+	<resultMap id="usuarioResultMap" type="pe.com.pivo.seguridad.dominio.Usuario">
+		<result property="idUsuario" column="id_usuario" />
+		<result property="noLogin" column="no_login" />
+		<result property="noPassword" column="no_password" />
+		<result property="noNombre" column="no_nombre" />
+		<result property="noApellido" column="no_apellido" />
+		<result property="noEmail" column="no_email" />
+		<result property="idRol" column="id_rol"/>
+		<result property="noDescripcion" column="no_descripcion"/>
+	</resultMap>
+	<select id="listarUsuario" resultMap="usuarioResultMap">
+		select * from seguridad.fn_usuario_listar(#{pNoNombre})
+	</select>
+</mapper>
+	
